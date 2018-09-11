@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Git</string>
+
+    <!--ui strings-->
+    <string name="progress_default_msg">Loading some trending projects…</string>
+    <string name="home_repo_title">Company repo</string>
+    <string name="home_repo_subtitle">My awesome repo title</string>
+    <string name="error_git_repo">could not connect to server </string>
+    <string name="button_try_again">Try again</string>
+    <string name="error_internet_connection">Please check your connectivity</string>
+    <string name="error_no_repo_found">no repo found</string>
+</resources>

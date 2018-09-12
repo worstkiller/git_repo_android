@@ -6,6 +6,7 @@
 **What app does:**
 
 * shows the trending projects from github
+* Searches in local list
 * can change the type of project from menu selection
 * click to view the details of the current repository
 * click to share the clone url

@@ -21,8 +21,13 @@
 * kotlinx for layout binding (inbuilt butterknife alternative for kotlin)
 * and few more including support libs
 
+```sh
+Log.d("TAG","Happy Coding");
+```
 
+License
+----
 
-console.log('Happy Coding');
+MIT
 
 ---

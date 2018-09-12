@@ -162,7 +162,6 @@
     <orderEntry type="library" name="com.android.support:localbroadcastmanager-28.0.0-alpha1" level="project" />
     <orderEntry type="library" name="com.android.support:appcompat-v7-28.0.0-alpha1" level="project" />
     <orderEntry type="library" scope="TEST" name="org.hamcrest:hamcrest-core:1.3@jar" level="project" />
-    <orderEntry type="library" name="com.jakewharton:butterknife-annotations:8.8.1@jar" level="project" />
     <orderEntry type="library" name="com.android.support:design-chip-28.0.0-alpha1" level="project" />
     <orderEntry type="library" name="com.android.support:design-textfield-28.0.0-alpha1" level="project" />
     <orderEntry type="library" name="com.android.support:design-bottomsheet-28.0.0-alpha1" level="project" />
@@ -197,7 +196,6 @@
     <orderEntry type="library" name="android.arch.lifecycle:runtime-1.1.1" level="project" />
     <orderEntry type="library" name="com.android.support.constraint:constraint-layout-1.1.3" level="project" />
     <orderEntry type="library" name="com.android.support:asynclayoutinflater-28.0.0-alpha1" level="project" />
-    <orderEntry type="library" name="com.jakewharton:butterknife-8.8.1" level="project" />
     <orderEntry type="library" name="com.android.support:design-navigation-28.0.0-alpha1" level="project" />
     <orderEntry type="library" name="com.squareup.retrofit2:retrofit:2.4.0@jar" level="project" />
     <orderEntry type="library" name="com.android.support:design-stateful-28.0.0-alpha1" level="project" />

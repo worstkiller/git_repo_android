@@ -36,6 +36,14 @@ class HomeActivity : BaseActivity(), HomeNavigator {
         observeErrorStatus()
         observeProgressChange()
         manageClickListener()
+        getRepoList()
+    }
+
+    /**
+     * gets the repo list
+     */
+    private fun getRepoList() {
+        viewModel.getGitRepo(SEARCH_TOPIC_DEFAULT, SEARCH_SORT_STARS, SEARCH_ORDER_DSC)
     }
 
     /**
@@ -58,11 +66,6 @@ class HomeActivity : BaseActivity(), HomeNavigator {
                 hideProgress()
             }
         })
-    }
-
-    override fun onStart() {
-        super.onStart()
-        viewModel.getGitRepo(SEARCH_TOPIC_DEFAULT, SEARCH_SORT_STARS, SEARCH_ORDER_DSC)
     }
 
     /**

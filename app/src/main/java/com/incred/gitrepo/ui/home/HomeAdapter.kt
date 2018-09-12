@@ -12,6 +12,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.incred.gitrepo.R
 import com.incred.gitrepo.callback.HomeNavigator
 import com.incred.gitrepo.model.GitRepo
+import com.incred.gitrepo.utils.DATE_FORMAT_REPO_UPDATED
 import com.incred.gitrepo.utils.Utility
 
 /**
@@ -57,8 +58,8 @@ class HomeAdapter(navigationListener: HomeNavigator) : RecyclerView.Adapter<Home
         fun bindData(get: GitRepo) {
 
             tvRepoTitle.text = get.name
-            tvRepoUserName.text = get.owner.login
-            tvDaysAgo.text = Utility.getDateInFormatForComment(get.updated_at)
+            tvRepoUserName.text = get.owner!!.login
+            tvDaysAgo.text = Utility.getDateInFormatForRelativeTime(DATE_FORMAT_REPO_UPDATED, get.updated_at!!)
             tvStars.text = get.stargazers_count.toString()
 
             Glide.with(context)

@@ -17,6 +17,7 @@ import com.incred.gitrepo.R
 import com.incred.gitrepo.callback.HomeNavigator
 import com.incred.gitrepo.model.GitRepo
 import com.incred.gitrepo.ui.HomeViewModeFactory
+import com.incred.gitrepo.ui.details.DetailsActivity
 import com.incred.gitrepo.utils.*
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.include_error_layout.*
@@ -107,7 +108,9 @@ class HomeActivity : BaseActivity(), HomeNavigator {
      * @param repo
      */
     override fun onClickNavigation(position: Int, repo: GitRepo) {
-        showToast(repo.full_name)
+        val bundle = Bundle()
+        bundle.putParcelable(EXTRA_BUNDLE_REPO, repo)
+        openActivity(DetailsActivity::class.java, bundle)
     }
 
     /**
@@ -125,7 +128,7 @@ class HomeActivity : BaseActivity(), HomeNavigator {
                 viewModel.getGitRepo(topics, SEARCH_SORT_STARS, SEARCH_ORDER_DSC)
             }
             R.id.menuFrontEnd -> {
-                val topics = Utility.getTopicBuilder(SEARCH_TOPIC_ANGULAR, SEARCH_TOPIC_REACT)
+                val topics = Utility.getTopicBuilder(SEARCH_TOPIC_ANGULAR)
                 viewModel.getGitRepo(topics, SEARCH_SORT_STARS, SEARCH_ORDER_DSC)
             }
             R.id.menuAndroid -> {

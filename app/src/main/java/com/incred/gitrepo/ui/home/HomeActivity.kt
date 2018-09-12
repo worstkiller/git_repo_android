@@ -3,15 +3,11 @@ package com.incred.gitrepo.ui.home
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.annotation.StringRes
-import android.support.design.widget.Snackbar
-import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.SearchView
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.LinearLayout.VERTICAL
 import com.incred.gitrepo.BaseActivity
 import com.incred.gitrepo.R
 import com.incred.gitrepo.callback.HomeNavigator
@@ -121,10 +117,45 @@ class HomeActivity : BaseActivity(), HomeNavigator {
      */
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
+        createSearchMenu(menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+    /**
+     * search menu for searching in repo
+     * @param menu
+     */
+    private fun createSearchMenu(menu: Menu?) {
+        val menuSearch = menu!!.findItem(R.id.menuSearch)
+        val searchView = menuSearch.actionView as SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (searchView.isIconified) {
+                    searchView.isIconified = false
+                    menuSearch.collapseActionView()
+                }
+                manageSearchQuery(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                manageSearchQuery(newText)
+                return false
+            }
+
+        })
+    }
+
+    /**
+     * this manages the seach view
+     * @param query
+     */
+    private fun manageSearchQuery(query: String?) {
+        viewModel.sortResults(query!!)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        Utility.hideKeyboardFrom(this, window.decorView)
         when (item!!.itemId) {
             R.id.menuBackend -> {
                 val topics = Utility.getTopicBuilder(SEARCH_TOPIC_NODE)

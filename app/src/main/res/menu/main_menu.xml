@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuSearch"
+        android:icon="@drawable/ic_action_search"
+        android:title="@string/menu_search"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="always|collapseActionView" />
 
     <item
         android:id="@+id/menuAndroid"
-        android:title="Android" />
+        android:title="@string/menu_android" />
 
     <item
         android:id="@+id/menuFrontEnd"
-        android:title="FrontEnd" />
+        android:title="@string/menu_frontend" />
 
     <item
         android:id="@+id/menuBackend"
-        android:title="Backend" />
+        android:title="@string/menu_backend" />
 
 </menu>

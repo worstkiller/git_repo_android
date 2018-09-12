@@ -9,6 +9,7 @@ import com.incred.gitrepo.data.ApiProvider
 import com.incred.gitrepo.data.Repository
 import com.incred.gitrepo.model.GitRepo
 import com.incred.gitrepo.model.GitRepoResponse
+import com.incred.gitrepo.utils.Utility
 
 /**
  * Created by incred on 11/9/18.
@@ -19,6 +20,7 @@ class HomeViewModel(navigator: HomeNavigator) : ViewModel() {
     val isLoading: MutableLiveData<Boolean> = MutableLiveData()
     val apiProvider = ApiProvider(Repository.getApi(null))
     val adapter = HomeAdapter(navigator)
+    val originalList = ArrayList<GitRepo>()
 
     /**
      * gets a list of git repo with given parameters
@@ -38,6 +40,7 @@ class HomeViewModel(navigator: HomeNavigator) : ViewModel() {
                     if (gitResponse.total_count > 0) {
                         updateData(gitResponse.items)
                         errorStatus.value = null
+                        originalList.addAll(gitResponse.items)
                     } else {
                         errorStatus.value = R.string.error_no_repo_found
                         adapter.clear()
@@ -63,7 +66,25 @@ class HomeViewModel(navigator: HomeNavigator) : ViewModel() {
         })
     }
 
+    /**
+     * handle the data here when received from api
+     */
     private fun updateData(listOfRepo: ArrayList<GitRepo>) {
         adapter.updateData(listOfRepo)
+    }
+
+    /**
+     * this searches in existing data for matches and returns if found
+     */
+    fun sortResults(query: String) {
+        try {
+            if (query.isEmpty()) {
+                adapter.updateData(originalList)
+            } else {
+                adapter.updateData(Utility.getSortedResult(query, originalList))
+            }
+        } catch (exp: Exception) {
+            exp.printStackTrace()
+        }
     }
 }

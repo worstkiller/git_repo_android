@@ -38,8 +38,7 @@ data class GitRepo(val id: Int?,
             parcel.readInt(),
             parcel.readString(),
             parcel.readInt(),
-            parcel.readFloat()) {
-    }
+            parcel.readFloat())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         id?.let { parcel.writeInt(it) }
@@ -78,8 +77,7 @@ data class RepoOwner(val login: String,
                      val avatar_url: String) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readString(),
-            parcel.readString()) {
-    }
+            parcel.readString())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(login)

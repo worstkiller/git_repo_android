@@ -13,4 +13,8 @@
     <string name="title_details">Details</string>
     <string name="error_no_url_found">No clone URL found</string>
     <string name="last_update">Last update: %1s</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_android">Android</string>
+    <string name="menu_frontend">FrontEnd</string>
+    <string name="menu_backend">Backend</string>
 </resources>

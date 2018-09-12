@@ -1,4 +1,4 @@
-# Git Android Client
+# Git Android Client [![Build Status](https://travis-ci.org/worstkiller/git_repo_android.svg?branch=master)](https://travis-ci.org/worstkiller/git_repo_android)
 #### Demonstrates the basic use of github [REST API](https://developer.github.com/v3/search/) in android
 
 ---
